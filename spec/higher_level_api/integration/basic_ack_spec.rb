@@ -20,7 +20,7 @@ describe Bunny::Channel, "#ack" do
       x.publish("bunneth", :routing_key => q.name)
       sleep 0.5
       q.message_count.should == 1
-      delivery_details, properties, content = q.pop(:ack => true)
+      delivery_details, properties, content = q.pop(:manual_ack => true)
 
       ch.ack(delivery_details.delivery_tag, true)
       q.message_count.should == 0
@@ -57,7 +57,7 @@ describe Bunny::Channel, "#ack" do
       x.publish("bunneth", :routing_key => q.name)
       sleep 0.5
       q.message_count.should == 1
-      _, _, content = q.pop(:ack => true)
+      _, _, content = q.pop(:manual_ack => true)
 
       ch.on_error do |ch, channel_close|
         @channel_close = channel_close
