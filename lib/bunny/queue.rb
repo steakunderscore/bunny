@@ -171,7 +171,7 @@ module Bunny
                   }, &block)
 
       unless opts[:ack].nil?
-        @logger.warn warn "[DEPRECATION] `:ack` is deprecated.  Please use `:manual_ack` instead."
+        warn "[DEPRECATION] `:ack` is deprecated.  Please use `:manual_ack` instead."
         opts[:manual_ack] = opts[:ack]
       end
 
@@ -238,7 +238,7 @@ module Bunny
     #   conn.close
     def pop(opts = {:manual_ack => false}, &block)
       unless opts[:ack].nil?
-        @logger.warn warn "[DEPRECATION] `:ack` is deprecated.  Please use `:manual_ack` instead."
+        warn "[DEPRECATION] `:ack` is deprecated.  Please use `:manual_ack` instead."
         opts[:manual_ack] = opts[:ack]
       end
 

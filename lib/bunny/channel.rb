@@ -585,7 +585,7 @@ module Bunny
       raise_if_no_longer_open!
 
       unless opts[:ack].nil?
-        @logger.warn warn "[DEPRECATION] `:ack` is deprecated.  Please use `:manual_ack` instead."
+        warn "[DEPRECATION] `:ack` is deprecated.  Please use `:manual_ack` instead."
         opts[:manual_ack] = opts[:ack]
       end
 
